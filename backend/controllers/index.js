@@ -47,7 +47,7 @@ exports.generateResponse = async (req, res) => {
     const prompt = req.body?.prompt;
     // // console.log('prompt', prompt)
 
-    const result = await model.generateContentStream(prompt);
+    // const result = await model.generateContentStream(prompt);
 
     // let text = "";
     // // let chunkText ="";
