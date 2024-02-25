@@ -1,26 +1,28 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const bodyParser = require("body-parser");
-// const ai = require("./controllers/index");
-const cors = require("cors");
+const express = require("express")
+const dotenv = require("dotenv")
+const bodyParser = require("body-parser")
+// const ai = require("./controllers/index")
+const cors = require("cors")
 
-dotenv.config();
 
-const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({ origin: "*" }));
+dotenv.config()
 
-app.get("/", (req, res) => {
-  res.status(200).send("Hi Vercel...!");
+const app = express()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors({ origin: "*" }))
+
+const route = express.Router()
+
+route.get("/", (req, res) => {
+  res.status(200).send("Hi Vercel...!")
 });
-
 
 const {
   GoogleGenerativeAI,
   HarmBlockThreshold,
   HarmCategory,
-} = require("@google/generative-ai");
+} = require("@google/generative-ai")
 
 const generationConfig = {
   temperature: 0.9,
@@ -46,20 +48,20 @@ const safetySettings = [
     category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
     threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
   },
-];
+]
 
-const configuration = new GoogleGenerativeAI(process.env.API_KEY);
-const modelId = "gemini-pro";
+const configuration = new GoogleGenerativeAI(process.env.API_KEY)
+const modelId = "gemini-pro"
 
 const model = configuration.getGenerativeModel({
   model: modelId,
   generationConfig,
   safetySettings,
-});
+})
 
 
 
-app.post("/response", async (req, res) => {
+route.post("/response", async (req, res) => {
   try {
     const prompt = req.body?.prompt;
     // console.log('prompt', prompt)
@@ -81,11 +83,9 @@ app.post("/response", async (req, res) => {
     console.log(err);
     res.status(500).json({ message: "Internal Server Error" });
   }
-});
+})
 
-/*
-
-app.post("/chat", async (req, res) => {
+route.post("/chat", async (req, res) => {
   try {
     const chat = model.startChat({
       history: [
@@ -101,27 +101,27 @@ app.post("/chat", async (req, res) => {
       generationConfig: {
         maxOutputTokens: 2048,
       },
-    });
+    })
 
     // const { prompt } = req.body;
-    const prompt = req.body?.prompt;
+    const prompt = req.body?.prompt
     // console.log('prompt', prompt)
 
-    const result = await chat.sendMessage(prompt);
-    const response = await result.response;
-    const text = response.text();
+    const result = await chat.sendMessage(prompt)
+    const response = await result.response
+    const text = response.text()
     // console.log(text);
 
-    res.send({ response: text });
+    res.send({ response: text })
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Internal Server Error" });
+    console.log(err)
+    res.status(500).json({ message: "Internal Server Error" })
   }
 });
-*/
 
-const port = process.env.PORT;
+
+const port = process.env.PORT
 
 app.listen(port, () => {
   console.log(`Server is running ${port}`);
-});
+})
