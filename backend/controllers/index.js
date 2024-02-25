@@ -48,21 +48,21 @@ exports.generateResponse = async (req, res) => {
     // // console.log('prompt', prompt)
     const { prompt } = req.body
 
-    // const result = await model.generateContentStream(prompt);
+    const result = await model.generateContentStream(prompt);
 
-    // let text = "";
-    // // let chunkText ="";
-    // for await (const chunk of result.stream) {
-    //   chunkText = chunk.text();
-    //   // console.log('response => ', chunkText);
-    //   text += chunkText;
-    // }
+    let text = "";
+    // let chunkText ="";
+    for await (const chunk of result.stream) {
+      chunkText = chunk.text();
+      // console.log('response => ', chunkText);
+      text += chunkText;
+    }
 
-    // // console.log(text)
+    // console.log(text)
 
-    // res.send({ response: text });
+    res.send({ response: text });
     // res.json("from generate responsex")
-    res.send(prompt)
+    // res.send(prompt)
     
   } catch (err) {
     console.log(err);
