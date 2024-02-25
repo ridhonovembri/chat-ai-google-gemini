@@ -44,22 +44,23 @@ const model = configuration.getGenerativeModel({
 
 exports.generateResponse = async (req, res) => {
   try {
-    const prompt = req.body?.prompt;
-    // console.log('prompt', prompt)
+    // const prompt = req.body?.prompt;
+    // // console.log('prompt', prompt)
 
-    const result = await model.generateContentStream(prompt);
+    // const result = await model.generateContentStream(prompt);
 
-    let text = "";
-    // let chunkText ="";
-    for await (const chunk of result.stream) {
-      chunkText = chunk.text();
-      // console.log('response => ', chunkText);
-      text += chunkText;
-    }
+    // let text = "";
+    // // let chunkText ="";
+    // for await (const chunk of result.stream) {
+    //   chunkText = chunk.text();
+    //   // console.log('response => ', chunkText);
+    //   text += chunkText;
+    // }
 
-    // console.log(text)
+    // // console.log(text)
 
-    res.send({ response: text });
+    // res.send({ response: text });
+    res.send("from generate response")
     
   } catch (err) {
     console.log(err);
@@ -69,32 +70,33 @@ exports.generateResponse = async (req, res) => {
 
 exports.generateChat = async (req, res) => {
   try {
-    const chat = model.startChat({
-      history: [
-        {
-          role: "user",
-          parts: "Hello, I have 2 dogs in my house.",
-        },
-        {
-          role: "model",
-          parts: "Great to meet you. What would you like to know?",
-        },
-      ],
-      generationConfig: {
-        maxOutputTokens: 2048,
-      },
-    });
+    // const chat = model.startChat({
+    //   history: [
+    //     {
+    //       role: "user",
+    //       parts: "Hello, I have 2 dogs in my house.",
+    //     },
+    //     {
+    //       role: "model",
+    //       parts: "Great to meet you. What would you like to know?",
+    //     },
+    //   ],
+    //   generationConfig: {
+    //     maxOutputTokens: 2048,
+    //   },
+    // });
 
-    // const { prompt } = req.body;
-    const prompt = req.body?.prompt;
-    // console.log('prompt', prompt)
+    // // const { prompt } = req.body;
+    // const prompt = req.body?.prompt;
+    // // console.log('prompt', prompt)
 
-    const result = await chat.sendMessage(prompt);
-    const response = await result.response;
-    const text = response.text();
-    // console.log(text);
+    // const result = await chat.sendMessage(prompt);
+    // const response = await result.response;
+    // const text = response.text();
+    // // console.log(text);
 
-    res.send({ response: text });
+    // res.send({ response: text });
+    res.send("from generate chat")
 
   } catch (err) {
     console.log(err);
