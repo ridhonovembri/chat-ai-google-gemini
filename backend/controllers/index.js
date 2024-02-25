@@ -6,7 +6,8 @@ const {
 const dotenv = require("dotenv");
 
 dotenv.config();
-const configuration = new GoogleGenerativeAI(process.env.API_KEY);
+// const configuration = new GoogleGenerativeAI(process.env.API_KEY);
+const configuration = new GoogleGenerativeAI('AIzaSyAcBs0xovZfD_-Y7nq2lyuO8xDNBX7V0ms');
 const modelId = "gemini-pro";
 
 const generationConfig = {
