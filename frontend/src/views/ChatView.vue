@@ -44,7 +44,7 @@
         <a
           href="https://ai.google.dev/docs"
           target="_blank"
-          >Google Gemini 1.5</a
+          >Google Gemini</a
         >
       </p>
       <p class="footer-right">
