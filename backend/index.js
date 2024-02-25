@@ -4,27 +4,25 @@ const bodyParser = require("body-parser")
 const ai = require("./controllers/index")
 const cors = require('cors')
 
-
 dotenv.config()
 
 const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(cors({
-    credentials: true,
+    // credentials: true,
     origin: '*'
 }));
 
 app.post("/response", ai.generateResponse)
 app.post("/chat", ai.generateChat)
 
+app.get('/', (req, res) => {
+    res.status(200).send('Hi Vercel...!')
+})
 
 const port = process.env.PORT
 
-app.get("/", (req, res) => {
-    res.send("Hello World")
-})
-
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
+app.listen(port, () =>{
+    console.log(`Server is running ${port}`)
 })
