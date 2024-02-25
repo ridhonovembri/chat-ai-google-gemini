@@ -90,7 +90,7 @@ export default {
 
       loader.style.display = 'block';
 
-      const result = await Post.response(
+      const result = await Post.chat(
         JSON.stringify({ prompt: user_input })
         
       );
