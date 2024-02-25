@@ -9,28 +9,12 @@ dotenv.config();
 const configuration = new GoogleGenerativeAI(process.env.API_KEY);
 const modelId = "gemini-pro";
 
-// const generationConfig = {
-//   stopSequences: ["red"],
-//   maxOutputTokens: 500,
-//   temperature: 0.9,
-//   topP: 0.1,
-//   topK: 16,
-// };
-
 const generationConfig = {
     temperature: 0.9,
     topK: 1,
     topP: 1,
     maxOutputTokens: 2048,
   };
-
-// const safetySettings = [
-//   {
-//     category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-//     threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-//   },
-// ];
-
 
 const safetySettings = [
     {
@@ -60,16 +44,10 @@ const model = configuration.getGenerativeModel({
 
 exports.generateResponse = async (req, res) => {
   try {
-    // const { prompt } = req.body;
     const prompt = req.body?.prompt;
     // console.log('prompt', prompt)
 
-    // const result = await model.generateContent(prompt);
     const result = await model.generateContentStream(prompt);
-    // const response = await result.response;
-
-    // const text = response.text();
-    // console.log(text);
 
     let text = "";
     // let chunkText ="";
@@ -82,6 +60,7 @@ exports.generateResponse = async (req, res) => {
     // console.log(text)
 
     res.send({ response: text });
+    
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Internal Server Error" });
@@ -115,16 +94,7 @@ exports.generateChat = async (req, res) => {
     const text = response.text();
     // console.log(text);
 
-    // let text = "";
-    // let chunkText ="";
-    // for await (const chunk of result.stream) {
-    //   chunkText = chunk.text();
-    //   console.log(chunkText);
-    //   text += chunkText;
-    // }
-
     res.send({ response: text });
-    // res.json({ response: text });
 
   } catch (err) {
     console.log(err);
@@ -132,6 +102,4 @@ exports.generateChat = async (req, res) => {
   }
 };
 
-exports.history = [];
 
-// export { generateResponse, history };
