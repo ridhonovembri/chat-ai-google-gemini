@@ -16,7 +16,8 @@ This application is FREE 100% to be copied, modified and distributed.
 
 :author={RNOVEMBRI}
 
-![image](https://github.com/ridhonovembri/imasjid/assets/6411417/3adceab6-b4d3-45f6-a804-3d05682a81f6)
+![image](https://github.com/ridhonovembri/chat-ai-google-gemini/assets/6411417/7eb0c604-577f-423a-aaf0-bd67c3b2a725)
 
-![image](https://github.com/ridhonovembri/imasjid/assets/6411417/bb53d77e-e56b-4ab2-b6a0-da199e8d1e7b)
+
+
 
