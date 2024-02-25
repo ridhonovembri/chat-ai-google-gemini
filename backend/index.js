@@ -58,7 +58,7 @@ const model = configuration.getGenerativeModel({
 });
 
 
-/*
+
 app.post("/response", async (req, res) => {
   try {
     const prompt = req.body?.prompt;
@@ -82,6 +82,8 @@ app.post("/response", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+/*
 
 app.post("/chat", async (req, res) => {
   try {
