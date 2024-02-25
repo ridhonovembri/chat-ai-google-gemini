@@ -44,8 +44,9 @@ const model = configuration.getGenerativeModel({
 
 exports.generateResponse = async (req, res) => {
   try {
-    const prompt = req.body?.prompt;
+    // const prompt = req.body?.prompt;
     // // console.log('prompt', prompt)
+    const { prompt } = req.body
 
     // const result = await model.generateContentStream(prompt);
 
