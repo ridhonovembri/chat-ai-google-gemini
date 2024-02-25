@@ -44,10 +44,10 @@ const model = configuration.getGenerativeModel({
 
 exports.generateResponse = async (req, res) => {
   try {
-    // const prompt = req.body?.prompt;
+    const prompt = req.body?.prompt;
     // // console.log('prompt', prompt)
 
-    // const result = await model.generateContentStream(prompt);
+    const result = await model.generateContentStream(prompt);
 
     // let text = "";
     // // let chunkText ="";
@@ -60,7 +60,8 @@ exports.generateResponse = async (req, res) => {
     // // console.log(text)
 
     // res.send({ response: text });
-    res.send("from generate response")
+    // res.json("from generate responsex")
+    res.send(prompt)
     
   } catch (err) {
     console.log(err);
