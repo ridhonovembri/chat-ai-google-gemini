@@ -5,7 +5,7 @@
 * Backend :
     -   NodeJs  [https://nodejs.org/en/download](https://nodejs.org/en/download)
     -   ExpressJS  [https://expressjs.com/](https://expressjs.com/)
-    -   Google Generative AI [https://www.npmjs.com/package/@google/generative-ai] (https://www.npmjs.com/package/@google/generative-ai)
+    -   Google Generative AI [https://www.npmjs.com/package/@google/generative-ai](https://www.npmjs.com/package/@google/generative-ai)
 * Frontend
     -   VueJs 3  [https://vuejs.org/](https://vuejs.org/)
     -   PrimeVue Component  [https://primevue.org/](https://primevue.org/)
