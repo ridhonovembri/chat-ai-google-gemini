@@ -15,15 +15,15 @@ app.get("/", (req, res) => {
   res.status(200).send("Hi Vercel...!");
 });
 
-/*
+
 const {
   GoogleGenerativeAI,
   HarmBlockThreshold,
   HarmCategory,
 } = require("@google/generative-ai");
 
-const configuration = new GoogleGenerativeAI(process.env.API_KEY);
-const modelId = "gemini-pro";
+/*
+
 
 const generationConfig = {
   temperature: 0.9,
@@ -51,11 +51,16 @@ const safetySettings = [
   },
 ];
 
+const configuration = new GoogleGenerativeAI(process.env.API_KEY);
+const modelId = "gemini-pro";
+
 const model = configuration.getGenerativeModel({
   model: modelId,
   generationConfig,
   safetySettings,
 });
+
+
 
 app.post("/response", async (req, res) => {
   try {
