@@ -1,4 +1,6 @@
 **Ask Jarvis 1.0.0 - Chat AI**
+-
+Application for Chat with AI powered by Google Gemini
 
 ***TechStack***
 -
