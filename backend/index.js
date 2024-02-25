@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
   res.status(200).send("Hi Vercel...!");
 });
 
+/*
 const {
   GoogleGenerativeAI,
   HarmBlockThreshold,
@@ -113,6 +114,7 @@ app.post("/chat", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+*/
 
 const port = process.env.PORT;
 
