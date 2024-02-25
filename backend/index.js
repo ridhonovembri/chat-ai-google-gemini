@@ -1,7 +1,7 @@
 const express = require("express")
 const dotenv = require("dotenv")
 const cors = require("cors")
-const appRoutes = require('./routes/AppRoutes')
+// const appRoutes = require('./routes/AppRoutes')
 
 const app = express()
 
@@ -11,7 +11,7 @@ app.use(cors({ origin: "*" }))
 // app.use(appRoutes)
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hi Vercel...!')
+  res.status(200).send('Hi Vercel...!!')
 })
 
 dotenv.config()
