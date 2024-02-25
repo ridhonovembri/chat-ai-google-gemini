@@ -22,9 +22,6 @@ const {
   HarmCategory,
 } = require("@google/generative-ai");
 
-/*
-
-
 const generationConfig = {
   temperature: 0.9,
   topK: 1,
@@ -61,7 +58,7 @@ const model = configuration.getGenerativeModel({
 });
 
 
-
+/*
 app.post("/response", async (req, res) => {
   try {
     const prompt = req.body?.prompt;
