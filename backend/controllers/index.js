@@ -8,6 +8,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 // const configuration = new GoogleGenerativeAI(process.env.API_KEY);
 const configuration = new GoogleGenerativeAI('AIzaSyAcBs0xovZfD_-Y7nq2lyuO8xDNBX7V0ms');
+// const configuration = new GoogleGenerativeAI('AIzaSyDpaR92df1SSzO4nXkl91cDp-OI_gHbTsk');
+
+//AIzaSyDpaR92df1SSzO4nXkl91cDp-OI_gHbTsk
+
 const modelId = "gemini-pro";
 
 const generationConfig = {
@@ -40,14 +44,14 @@ const safetySettings = [
 const model = configuration.getGenerativeModel({
   model: modelId,
   generationConfig,
-  safetySettings,
+  //safetySettings,
 });
 
 exports.generateResponse = async (req, res) => {
   try {
     // const prompt = req.body?.prompt;
-    // // console.log('prompt', prompt)
     const { prompt } = req.body
+    // console.log('prompt response', prompt)
 
     const result = await model.generateContentStream(prompt);
 
@@ -91,10 +95,10 @@ exports.generateChat = async (req, res) => {
 
     const { prompt } = req.body;
     // const prompt = req.body?.prompt;
-    // console.log('prompt', prompt)
+    // console.log('prompt chat', prompt)
 
     const result = await chat.sendMessage(prompt);
-    const response = await result.response;
+    const response = result.response;
     const text = response.text();
     // console.log(text);
 
