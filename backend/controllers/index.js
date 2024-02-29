@@ -8,8 +8,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-// console.log('API_KEY ==> ', process.env.API_KEY)
-const configuration = new GoogleGenerativeAI(process.env.API_KEY);
+const configuration = new GoogleGenerativeAI('AIzaSyAcBs0xovZfD_-Y7nq2lyuO8xDNBX7V0ms');
 
 const modelId = "gemini-pro";
 
@@ -39,10 +38,7 @@ const safetySettings = [
     },
   ];
 
-
   
-
-
 const model = configuration.getGenerativeModel({
   model: modelId,
   // model: 'embedding-001',
@@ -51,7 +47,6 @@ const model = configuration.getGenerativeModel({
 });
 
 exports.generateResponse = async (req, res) => {
-  console.log('API_KEY', process.env.API_KEY)
   try {
     // const prompt = req.body?.prompt;
     const { prompt } = req.body
