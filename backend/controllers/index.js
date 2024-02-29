@@ -6,11 +6,7 @@ const {
 const dotenv = require("dotenv");
 
 dotenv.config();
-// const configuration = new GoogleGenerativeAI(process.env.API_KEY);
-const configuration = new GoogleGenerativeAI('AIzaSyAcBs0xovZfD_-Y7nq2lyuO8xDNBX7V0ms');
-// const configuration = new GoogleGenerativeAI('AIzaSyDpaR92df1SSzO4nXkl91cDp-OI_gHbTsk');
-
-//AIzaSyDpaR92df1SSzO4nXkl91cDp-OI_gHbTsk
+const configuration = new GoogleGenerativeAI(process.env.API_KEY);
 
 const modelId = "gemini-pro";
 
@@ -41,8 +37,12 @@ const safetySettings = [
   ];
 
 
+  
+
+
 const model = configuration.getGenerativeModel({
   model: modelId,
+  // model: 'embedding-001',
   generationConfig,
   //safetySettings,
 });
@@ -65,7 +65,12 @@ exports.generateResponse = async (req, res) => {
 
     // console.log(text)
 
-    res.send({ response: text });
+    // const embed = await model.embedContent(text);
+    // const embedding = embed.embedding;
+
+    // res.send({ response: embedding.values})
+    res.json({ response: text });
+    // res.send({ response: text });
     // res.json("from generate responsex")
     // res.send(prompt)
     
@@ -102,7 +107,13 @@ exports.generateChat = async (req, res) => {
     const text = response.text();
     // console.log(text);
 
-    res.send({ response: text });
+    // const embed = await model.embedContent(text);
+    // const embedding = embed.embedding;
+
+    // res.send({ response: embedding.values})
+    
+
+    res.json({ response: text });
     // res.send("from generate chat")
 
   } catch (err) {
