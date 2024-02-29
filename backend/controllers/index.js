@@ -3,9 +3,12 @@ const {
   HarmBlockThreshold,
   HarmCategory,
 } = require("@google/generative-ai");
+
 const dotenv = require("dotenv");
 
 dotenv.config();
+
+// console.log('API_KEY ==> ', process.env.API_KEY)
 const configuration = new GoogleGenerativeAI(process.env.API_KEY);
 
 const modelId = "gemini-pro";
@@ -48,6 +51,7 @@ const model = configuration.getGenerativeModel({
 });
 
 exports.generateResponse = async (req, res) => {
+  console.log('API_KEY', process.env.API_KEY)
   try {
     // const prompt = req.body?.prompt;
     const { prompt } = req.body
