@@ -8,7 +8,8 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const configuration = new GoogleGenerativeAI('AIzaSyAcBs0xovZfD_-Y7nq2lyuO8xDNBX7V0ms');
+//const configuration = new GoogleGenerativeAI('AIzaSyAcBs0xovZfD_-Y7nq2lyuO8xDNBX7V0ms');
+const configuration = new GoogleGenerativeAI('AIzaSyD3UAmrv6PUBRMv4vQ1QWmRp97yeyIUx9s');
 
 const modelId = "gemini-pro";
 
